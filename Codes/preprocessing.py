@@ -93,7 +93,7 @@ def dummy_variables(y):
     y_new = onehotencoder.fit_transform(y).toarray()
     #Retiro uma coluna, pois somente com os estados 10,01,00 eu já consigo realizar a classificação
     #se não retirasse, ficaria com uma redundancia em meu dataset
-    y_new = y_new[:,0:2] 
+    #y_new = y_new[:,0:2] 
     return y_new
 
 
@@ -102,7 +102,8 @@ def standardize_data(X_train, X_test):
     from sklearn.preprocessing import StandardScaler
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
-    X_test = sc.fit_transform(X_test)
+    if X_test is not None:
+        X_test = sc.transform(X_test)
     return X_train, X_test
 
 

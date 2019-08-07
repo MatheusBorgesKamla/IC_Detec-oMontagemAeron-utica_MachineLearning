@@ -16,8 +16,8 @@ X_train, X_test = pre.standardize_data(X_train,X_test)
 
 #Implementando a SVM
 from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf', probability=True)
-classifier.fit(X_train, y_train)
+classifier = SVC(kernel = 'rbf', probability=True, gamma='auto')
+classifier.fit(X_train, y_train.ravel())
 
 #Prevendo os resultados de teste
 y_pred = classifier.predict(X_test)
@@ -29,6 +29,9 @@ cm = confusion_matrix(y_test, y_pred)
 print('\n\nConfusion Matrix: \n', cm)
 print('\n\nAccuracy: ',(cm[0,0]+cm[1,1]+cm[2,2])/np.sum(cm))
 
-
-
-
+#Realizando K-fold Cross Validation
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train.ravel(), cv = 10)
+acc_mean = accuracies.mean()
+acc_std = accuracies.std()
+print("\n\n 10-Cross Validation: \nAccuracy Mean: ",acc_mean,"\nAccuracy Std: ",acc_std)
