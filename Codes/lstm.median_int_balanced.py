@@ -1,11 +1,15 @@
 import numpy as np
 import preprocessing as pre
-# --- LSTM nao balanceada tomando todos os intervalos ---
+# --- LSTM balanceada tomando media em 10 intervalos ---
 
 data_num = 500
 num_int = 2560
 #Lendo todos os dados do experimento
 X, y = pre.load_3dim('dataset/',data_num,num_int)
+#Pegando a media em um numero de 10 intervalos para cada componente    
+X = pre.med_intervalo_3dim(X,10)
+#Balanceando os dados
+X, y = pre.proc_balanceado(X, y, data_num)
 #Remodelado as dimensões de y para ser aceito na dummy
 y = np.reshape(y,(y.shape[0],-1))
 #Passando y para dummy variables
@@ -31,7 +35,7 @@ sl_model.add(Dense(units=y_train.shape[1], activation='sigmoid'))
 #.compile ira realizar a configuracao final da rede para que possa sser treinada
 sl_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-epochs = 5
+epochs = 200
 
 
 sl_model.fit(X_train, y_train, epochs=epochs, shuffle=True)
@@ -72,11 +76,9 @@ for train, test in kfold.split(X[:,0,0], y_dummy[:,0]):
     sl_model.add(LSTM(units=hidden_size, input_shape=(X_train.shape[1],X_train.shape[2]) ,activation='tanh', dropout=0.2, recurrent_dropout=0.2))
     sl_model.add(Dense(units=y_train.shape[1], activation='sigmoid'))
     sl_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-    sl_model.fit(X[train], y_dummy[train], epochs=1, batch_size=10, verbose=0, validation_data=(X[test], y_dummy[test]))
+    sl_model.fit(X[train], y_dummy[train], epochs=epochs, batch_size=10, verbose=0, validation_data=(X[test], y_dummy[test]))
     scores = sl_model.evaluate(X[test], y_dummy[test], verbose=0)
     print("%s: %.2f%%" % (sl_model.metrics_names[1], scores[1]*100))
     cvscores.append(scores[1] * 100)
 print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
-
-    
 

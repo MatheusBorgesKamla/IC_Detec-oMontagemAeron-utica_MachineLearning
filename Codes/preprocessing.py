@@ -165,8 +165,18 @@ def med_intervalo(X,n_inter):
             X_new[exp][i] = np.mean(X[exp,ind:ind+inter_length])
             
     return X_new
-
-
+#Realiza a mesma coisa que a med_intervalo porem para 3 dimensoes
+def med_intervalo_3dim(X,n_inter):
+    inter_length = int(X.shape[1]/n_inter)
+    X_new = np.zeros((X.shape[0],n_inter,6))
+    for exp in range(0,X.shape[0]):
+        for var in range(0,6):
+            for it in range(0,n_inter):
+                ind = it*inter_length
+                X_new[exp][it][var] = np.mean(X[exp,ind:ind+inter_length,var])
+            
+            
+    return X_new
 
 
 

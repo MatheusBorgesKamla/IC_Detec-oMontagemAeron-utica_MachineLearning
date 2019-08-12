@@ -1,11 +1,13 @@
 import numpy as np
 import preprocessing as pre
-# --- LSTM nao balanceada tomando todos os intervalos ---
+# --- LSTM balanceada tomando todos os intervalos ---
 
 data_num = 500
 num_int = 2560
 #Lendo todos os dados do experimento
 X, y = pre.load_3dim('dataset/',data_num,num_int)
+#Balanceando os dados entre os estados (aleatorizando variaveis idependentes para cada estado)
+X, y = pre.proc_balanceado(X, y, data_num)
 #Remodelado as dimensões de y para ser aceito na dummy
 y = np.reshape(y,(y.shape[0],-1))
 #Passando y para dummy variables
@@ -77,6 +79,5 @@ for train, test in kfold.split(X[:,0,0], y_dummy[:,0]):
     print("%s: %.2f%%" % (sl_model.metrics_names[1], scores[1]*100))
     cvscores.append(scores[1] * 100)
 print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
-
-    
+   
 

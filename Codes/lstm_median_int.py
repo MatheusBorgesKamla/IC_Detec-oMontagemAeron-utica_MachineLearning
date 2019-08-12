@@ -1,11 +1,13 @@
 import numpy as np
 import preprocessing as pre
-# --- LSTM nao balanceada tomando todos os intervalos ---
+# --- LSTM nao balanceada tomando media em 10 intervalos ---
 
 data_num = 500
 num_int = 2560
 #Lendo todos os dados do experimento
 X, y = pre.load_3dim('dataset/',data_num,num_int)
+#Pegando a media em um numero de 10 intervalos para cada componente    
+X = pre.med_intervalo_3dim(X,10)
 #Remodelado as dimensões de y para ser aceito na dummy
 y = np.reshape(y,(y.shape[0],-1))
 #Passando y para dummy variables
@@ -31,7 +33,7 @@ sl_model.add(Dense(units=y_train.shape[1], activation='sigmoid'))
 #.compile ira realizar a configuracao final da rede para que possa sser treinada
 sl_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-epochs = 5
+epochs = 200
 
 
 sl_model.fit(X_train, y_train, epochs=epochs, shuffle=True)
@@ -77,6 +79,5 @@ for train, test in kfold.split(X[:,0,0], y_dummy[:,0]):
     print("%s: %.2f%%" % (sl_model.metrics_names[1], scores[1]*100))
     cvscores.append(scores[1] * 100)
 print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
-
-    
+   
 
