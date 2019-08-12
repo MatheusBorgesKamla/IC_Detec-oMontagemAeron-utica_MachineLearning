@@ -26,10 +26,43 @@ def load(folder_name, data_num, num_intervalos):
         Fx = dataset_adj.iloc[:num_intervalos,7].values/30
         Fy = dataset_adj.iloc[:num_intervalos,8].values/30
         Fz = dataset_adj.iloc[:num_intervalos,9].values/30
-        #Gero uma matriz unindo todos
-        #aux = np.column_stack((Fx,Fy,Fz,Mx,My,Mz))
+        #Gero um vetor em que primeiro insiro  todos os dados de Fx, depois Fy e assim por diante
         aux = np.concatenate([Fx, Fy, Fz, Mz, My, Mx])
-        #Adiciono elas no final de X
+        #Adiciono elas no final de X formando uma matriz
+        X.append(aux)
+    
+    #Passo X para array - possuira dimensao 3 (primeiro indice o experimento, segundo o intervalo do exp., terceiro a força/torque)
+    X = np.array(X)
+    #Elaboro o nome do arquivo csv e seu caminho para o label.csv
+    name_label = ''.join([folder_name,'labels.csv'])
+    #Leio o csv
+    dataset_label = pd.read_csv(name_label)
+    #Pego somente a coluna de classificação dos experimentos
+    y = dataset_label.iloc[:,1].values
+    return X, y
+#Realiza a mesma coisa que a load() porem gerando uma estrutura tridimensional (n_experimento, n_intervalos, n_features)
+def load_3dim(folder_name, data_num, num_intervalos):
+    X = []
+    for i in range(1,data_num+1):
+        #Reproduzo o nome do arquivo csv e seu caminho para ser buscado
+        name_file = ''.join([folder_name,'data_adjust-',str(i),'.csv'])
+        #Leio o csv
+        dataset_adj = pd.read_csv(name_file)
+        #Mx_thr = dataset_thr.iloc[:,10].values
+        #My_thr = dataset_thr.iloc[:,11].values
+        #Dados de torque retirados padronizados para 3
+        Mx = dataset_adj.iloc[:num_intervalos,10].values/3
+        My = dataset_adj.iloc[:num_intervalos,11].values/3
+        Mz = dataset_adj.iloc[:num_intervalos,12].values/3
+        #Fx_thr = dataset_thr.iloc[:,7].values
+        #Fy_thr = dataset_thr.iloc[:,8].values
+        #Dados de força retirados padronizados para 30
+        Fx = dataset_adj.iloc[:num_intervalos,7].values/30
+        Fy = dataset_adj.iloc[:num_intervalos,8].values/30
+        Fz = dataset_adj.iloc[:num_intervalos,9].values/30
+        #Gero uma matriz unindo todas as colunas lado a lado
+        aux = np.column_stack((Fx,Fy,Fz,Mx,My,Mz))
+        #Adiciono elas no final de X formando um cubo
         X.append(aux)
     
     #Passo X para array - possuira dimensao 3 (primeiro indice o experimento, segundo o intervalo do exp., terceiro a força/torque)
@@ -101,9 +134,17 @@ def dummy_variables(y):
 def standardize_data(X_train, X_test):
     from sklearn.preprocessing import StandardScaler
     sc = StandardScaler()
-    X_train = sc.fit_transform(X_train)
-    if X_test is not None:
-        X_test = sc.transform(X_test)
+    #Caso possuir 3 dimensoes o X_train e X_test
+    if len(X_train.shape) == 3:
+        for i in range(0,X_train.shape[0]):
+            X_train[i] = sc.fit_transform(X_train[i])
+        if X_test is not None:
+            for i in range(0,X_test.shape[0]):
+                X_test[i] = sc.transform(X_test[i])
+    else:
+        X_train = sc.fit_transform(X_train)
+        if X_test is not None:
+            X_test = sc.transform(X_test)
     return X_train, X_test
 
 
