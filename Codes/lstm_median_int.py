@@ -74,7 +74,7 @@ for train, test in kfold.split(X[:,0,0], y_dummy[:,0]):
     sl_model.add(LSTM(units=hidden_size, input_shape=(X_train.shape[1],X_train.shape[2]) ,activation='tanh', dropout=0.2, recurrent_dropout=0.2))
     sl_model.add(Dense(units=y_train.shape[1], activation='sigmoid'))
     sl_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-    sl_model.fit(X[train], y_dummy[train], epochs=1, batch_size=10, verbose=0, validation_data=(X[test], y_dummy[test]))
+    sl_model.fit(X[train], y_dummy[train], epochs=5, batch_size=10, verbose=0, validation_data=(X[test], y_dummy[test]))
     scores = sl_model.evaluate(X[test], y_dummy[test], verbose=0)
     print("%s: %.2f%%" % (sl_model.metrics_names[1], scores[1]*100))
     cvscores.append(scores[1] * 100)

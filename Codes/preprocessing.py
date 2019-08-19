@@ -17,17 +17,18 @@ def load(folder_name, data_num, num_intervalos):
         #Mx_thr = dataset_thr.iloc[:,10].values
         #My_thr = dataset_thr.iloc[:,11].values
         #Dados de torque retirados padronizados para 3
-        Mx = dataset_adj.iloc[:num_intervalos,10].values/3
-        My = dataset_adj.iloc[:num_intervalos,11].values/3
+        #Mx = dataset_adj.iloc[:num_intervalos,10].values/3
+        #My = dataset_adj.iloc[:num_intervalos,11].values/3
         Mz = dataset_adj.iloc[:num_intervalos,12].values/3
         #Fx_thr = dataset_thr.iloc[:,7].values
         #Fy_thr = dataset_thr.iloc[:,8].values
         #Dados de força retirados padronizados para 30
-        Fx = dataset_adj.iloc[:num_intervalos,7].values/30
-        Fy = dataset_adj.iloc[:num_intervalos,8].values/30
+        #Fx = dataset_adj.iloc[:num_intervalos,7].values/30
+        #Fy = dataset_adj.iloc[:num_intervalos,8].values/30
         Fz = dataset_adj.iloc[:num_intervalos,9].values/30
         #Gero um vetor em que primeiro insiro  todos os dados de Fx, depois Fy e assim por diante
-        aux = np.concatenate([Fx, Fy, Fz, Mz, My, Mx])
+        #aux = np.concatenate([Fx, Fy, Fz, Mz, My, Mx])
+        aux = np.concatenate([Fz, Mz])
         #Adiciono elas no final de X formando uma matriz
         X.append(aux)
     
@@ -51,17 +52,18 @@ def load_3dim(folder_name, data_num, num_intervalos):
         #Mx_thr = dataset_thr.iloc[:,10].values
         #My_thr = dataset_thr.iloc[:,11].values
         #Dados de torque retirados padronizados para 3
-        Mx = dataset_adj.iloc[:num_intervalos,10].values/3
-        My = dataset_adj.iloc[:num_intervalos,11].values/3
+        #Mx = dataset_adj.iloc[:num_intervalos,10].values/3
+        #My = dataset_adj.iloc[:num_intervalos,11].values/3
         Mz = dataset_adj.iloc[:num_intervalos,12].values/3
         #Fx_thr = dataset_thr.iloc[:,7].values
         #Fy_thr = dataset_thr.iloc[:,8].values
         #Dados de força retirados padronizados para 30
-        Fx = dataset_adj.iloc[:num_intervalos,7].values/30
-        Fy = dataset_adj.iloc[:num_intervalos,8].values/30
+        #Fx = dataset_adj.iloc[:num_intervalos,7].values/30
+        #Fy = dataset_adj.iloc[:num_intervalos,8].values/30
         Fz = dataset_adj.iloc[:num_intervalos,9].values/30
         #Gero uma matriz unindo todas as colunas lado a lado
-        aux = np.column_stack((Fx,Fy,Fz,Mx,My,Mz))
+        #aux = np.column_stack((Fx,Fy,Fz,Mx,My,Mz))
+        aux = np.column_stack((Fz,Mz))
         #Adiciono elas no final de X formando um cubo
         X.append(aux)
     
@@ -157,10 +159,10 @@ def split_data(X, y, test_percent, random_s):
 
 #Função que irá gerar a média das componentes de cada grandeza (Força e Torque ) em um determinado numero de intervalos
 def med_intervalo(X,n_inter):
-    inter_length = int(X.shape[1]/(6*n_inter))
-    X_new = np.zeros((X.shape[0],n_inter*6))
+    inter_length = int(X.shape[1]/(2*n_inter))
+    X_new = np.zeros((X.shape[0],n_inter*2))
     for exp in range(0,X.shape[0]):
-        for i in range(0,n_inter*6):
+        for i in range(0,n_inter*2):
             ind = i*inter_length
             X_new[exp][i] = np.mean(X[exp,ind:ind+inter_length])
             
@@ -168,9 +170,9 @@ def med_intervalo(X,n_inter):
 #Realiza a mesma coisa que a med_intervalo porem para 3 dimensoes
 def med_intervalo_3dim(X,n_inter):
     inter_length = int(X.shape[1]/n_inter)
-    X_new = np.zeros((X.shape[0],n_inter,6))
+    X_new = np.zeros((X.shape[0],n_inter,2))
     for exp in range(0,X.shape[0]):
-        for var in range(0,6):
+        for var in range(0,2):
             for it in range(0,n_inter):
                 ind = it*inter_length
                 X_new[exp][it][var] = np.mean(X[exp,ind:ind+inter_length,var])

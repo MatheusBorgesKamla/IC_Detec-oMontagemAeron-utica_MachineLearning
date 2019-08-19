@@ -1,6 +1,6 @@
 import numpy as np
 import preprocessing as pre
-# --- MLP balanceada tomando todos a media de 10 intervalos ---
+# --- MLP nao balanceada tomando todos a media de 10 intervalos ---
 
 data_num = 500
 num_int = 2560
@@ -61,17 +61,18 @@ print('\n\nConfusion Matrix: \n', cm)
 print('Accuracy: ',(cm[0,0]+cm[1,1]+cm[2,2])/np.sum(cm))
 
 #Realizando K-fold Cross Validation com 10 folders
+X_K, X_Knone, y_K, y_Knone = pre.split_data(X,y_dummy,0,None)
 from sklearn.model_selection import StratifiedKFold
 cvscores =[]
 kfold = StratifiedKFold(n_splits=10, shuffle=True)
-for train, test in kfold.split(X, y_dummy[:,0]):
+for train, test in kfold.split(X_K, y_K[:,0]):
     mlp_model = Sequential()
     mlp_model.add(Dense(units=92, activation='sigmoid', input_dim=np.shape(X)[1]))
     mlp_model.add(Dropout(0.5))
-    mlp_model.add(Dense(units=np.shape(y_dummy)[1], kernel_initializer='uniform', activation='softmax'))
+    mlp_model.add(Dense(units=np.shape(y_K)[1], kernel_initializer='uniform', activation='softmax'))
     mlp_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-    mlp_model.fit(X[train], y_dummy[train], epochs=epochs, batch_size=10, verbose=0, validation_data=(X[test], y_dummy[test]))
-    scores = mlp_model.evaluate(X[test], y_dummy[test], verbose=0)
+    mlp_model.fit(X_K[train], y_K[train], epochs=epochs, batch_size=10, verbose=0, validation_data=(X_K[test], y_K[test]))
+    scores = mlp_model.evaluate(X_K[test], y_K[test], verbose=0)
     print("%s: %.2f%%" % (mlp_model.metrics_names[1], scores[1]*100))
     cvscores.append(scores[1] * 100)
 print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
