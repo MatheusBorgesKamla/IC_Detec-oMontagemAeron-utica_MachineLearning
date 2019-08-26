@@ -32,33 +32,12 @@ print('\n\nConfusion Matrix: \n', cm)
 print('Accuracy: ',(cm[0,0]+cm[1,1]+cm[2,2])/np.sum(cm))
 
 
-#Realizando K-fold Cross Validation com 10 folders
+#Realizando K-fold Cross Validation
 from sklearn.model_selection import cross_val_score
-accuracies = cross_val_score(estimator = classifier, X = X_test, y = y_test.ravel(), cv = 10)
+#Aleatorizando dados balanceados
+X, X_none, y, y_none = pre.split_data(X, y, 0, None)
+accuracies = cross_val_score(estimator = classifier, X = X, y = y, cv = 10)
 acc_mean = accuracies.mean()
 acc_std = accuracies.std()
 print("\n\n 10-Cross Validation: \nAccuracy Mean: ",acc_mean,"\nAccuracy Std: ",acc_std)
-
-#Realizando K-fold Cross Validation gerando confusion matrix para cada iteração
-
-''' from sklearn.model_selection import StratifiedKFold
-X_fold, X_none, y_fold, y_none = pre.split_data(X,y,0,None)
-y_fold = y_fold.ravel()
-X_fold, X_none = pre.standardize_data(X,None)
-X_fold = X
-kfold = StratifiedKFold(n_splits=10,shuffle=True)
-cont = 0
-acc_fold = np.zeros(10)
-for train, test in kfold.split(X_fold,y_fold):
-    print("\nTrain: ",train, "\nTest: ",test)
-    clf = SVC(kernel= 'rbf',gamma='auto')
-    clf.fit(X_fold[train],y_fold[train],)
-    y_fold_pred = clf.predict(X_fold[test])
-    cm = confusion_matrix(y_fold[test],y_fold_pred)
-    acc_fold[cont] = (cm[0,0]+cm[1,1]+cm[2,2])/np.sum(cm)
-    print("------ Folder ",cont+1, "-------- \n\nConfusion Matrix: \n",cm,"\nAccuracy: ",acc_fold[cont])
-    cont += 1
-
-print("\n\n 10-Cross Validation: \nAccuracy Mean: ",acc_fold.mean(),"\nAccuracy Std: ",acc_fold.std())'''
-
 

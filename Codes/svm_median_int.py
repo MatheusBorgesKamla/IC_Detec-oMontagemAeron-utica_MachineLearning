@@ -31,11 +31,10 @@ print('Accuracy: ',(cm[0,0]+cm[1,1]+cm[2,2])/np.sum(cm))
 
 #Realizando K-fold Cross Validation
 from sklearn.model_selection import cross_val_score
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train.ravel(), cv = 10)
+#Aleatorizando dados balanceados
+X, X_none, y, y_none = pre.split_data(X, y, 0, None)
+accuracies = cross_val_score(estimator = classifier, X = X, y = y, cv = 10)
 acc_mean = accuracies.mean()
 acc_std = accuracies.std()
 print("\n\n 10-Cross Validation: \nAccuracy Mean: ",acc_mean,"\nAccuracy Std: ",acc_std)
-
-
-
 
