@@ -13,7 +13,7 @@ X, y = pre.proc_balanceado(X, y, data_num)
 #Passando y para dummy variables
 y_dummy = pre.dummy_variables(y)
 #Separando em conjunto de treino e teste (pego de forma aleatoria, aleatorizando também as variáveis dependentes)
-X_train, X_test, y_train, y_test = pre.split_data(X,y_dummy,0.2,None)
+X_train, X_test, y_train, y_test = pre.split_data(X,y_dummy,0.1,None)
 #Padronizando dados
 X_train, X_test = pre.standardize_data(X_train,X_test)
 

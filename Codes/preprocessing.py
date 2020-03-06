@@ -32,7 +32,7 @@ def load(folder_name, data_num, num_intervalos):
         #Adiciono elas no final de X formando uma matriz
         X.append(aux)
     
-    #Passo X para array - possuira dimensao 3 (primeiro indice o experimento, segundo o intervalo do exp., terceiro a força/torque)
+    #Passo X para array - possuira dimensao 2 (primeiro indice o experimento, segundo a força/torque)
     X = np.array(X)
     #Elaboro o nome do arquivo csv e seu caminho para o label.csv
     name_label = ''.join([folder_name,'labels.csv'])
@@ -85,17 +85,8 @@ def proc_balanceado(X, y, data_num):
     # label 1 - mounted
     # label 2 - jammed
     # label 3 - not mounted
-    X_mont = []
-    X_jam = []
-    X_nmont = []
-    for i in range(0,data_num):
-        if y[i] == 1:
-            X_mont.append(X[i])
-        elif y[i] == 2:
-            X_jam.append(X[i])
-        else :
-            X_nmont.append(X[i])
-            
+   
+    X_mont, X_jam, X_nmont = separate_class(X,y,data_num)       
     #Gero uma lista de 61 números aleátorios para cada estado
     #Serão os experimentos que estarei pegando e só 61 porque quero eles balanceados (o estado jam é o que tem menos exp. com 61)
     X_new = []
@@ -124,7 +115,7 @@ def proc_balanceado(X, y, data_num):
 def dummy_variables(y):
     #Passando para dummy variables os rotulos de y utilizando o modulo OneHorEncoder
     from sklearn.preprocessing import OneHotEncoder
-    onehotencoder = OneHotEncoder(categorical_features = [0])
+    onehotencoder = OneHotEncoder()
     y_new = onehotencoder.fit_transform(y).toarray()
     #Retiro uma coluna, pois somente com os estados 10,01,00 eu já consigo realizar a classificação
     #se não retirasse, ficaria com uma redundancia em meu dataset
@@ -180,6 +171,19 @@ def med_intervalo_3dim(X,n_inter):
             
     return X_new
 
+def separate_class(X, y, data_num):
+    y = y.reshape((data_num))
+    X_mont = []
+    X_jam = []
+    X_nmont = []
+    for i in range(0,data_num):
+        if y[i] == 1:
+            X_mont.append(X[i])
+        elif y[i] == 2:
+            X_jam.append(X[i])
+        else :
+            X_nmont.append(X[i])
+    return X_mont, X_jam, X_nmont
 
 
         
