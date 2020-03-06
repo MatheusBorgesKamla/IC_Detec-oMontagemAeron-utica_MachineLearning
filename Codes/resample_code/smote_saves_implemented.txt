@@ -1,0 +1,539 @@
+########## Random Seed 8 ############
+-------- Original dataset: -----------
+
+Confusion Matrix - Test Samples: 
+[[63  6  0]
+ [ 7  3  0]
+ [ 6  0 15]]
+Acc - Test Samples: 0.81
+
+Confusion Matrix - Train Samples: 
+[[250   0   3]
+ [  3  47   1]
+ [  2   0  94]]
+Acc - Train Samples: 0.9775
+
+------ Resample Jammed - 20.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[66  3  0]
+ [ 7  3  0]
+ [ 6  0 15]]
+Acc - Test Samples: 0.84
+
+20.0% :
+
+Confusion Matrix - Train Samples: 
+[[248   0   5]
+ [  6  57   0]
+ [  5   0  91]]
+Acc - Train Samples: 0.9611650485436893
+
+------ Resample Jammed - 20.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[64  5  0]
+ [ 5  5  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.84
+
+20.0% :
+
+Confusion Matrix - Train Samples: 
+[[250   0   3]
+ [  4  58   1]
+ [  5   0  91]]
+Acc - Train Samples: 0.9684466019417476
+
+------ Resample Jammed - 40.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[63  6  0]
+ [ 5  4  1]
+ [ 5  1 15]]
+Acc - Test Samples: 0.82
+
+40.0% :
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  4  70   1]
+ [  3   1  92]]
+Acc - Train Samples: 0.9693396226415094
+
+------ Resample Jammed - 60.00000000000001% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[66  3  0]
+ [ 7  3  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.84
+
+60.00000000000001% :
+
+Confusion Matrix - Train Samples: 
+[[248   0   5]
+ [  6  80   1]
+ [  4   0  92]]
+Acc - Train Samples: 0.963302752293578
+
+------ Resample Jammed - 80.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[61  8  0]
+ [ 3  7  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.83
+
+80.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   2   4]
+ [  1  97   1]
+ [  4   0  92]]
+Acc - Train Samples: 0.9732142857142857
+
+------ Resample Jammed - 100.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[62  7  0]
+ [ 3  7  0]
+ [ 6  0 15]]
+Acc - Test Samples: 0.84
+
+100.0% :
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  5 107   0]
+ [  5   0  91]]
+Acc - Train Samples: 0.9696312364425163
+
+------ Resample Jammed - 120.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[61  8  0]
+ [ 4  6  0]
+ [ 6  0 15]]
+Acc - Test Samples: 0.82
+
+120.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   2   4]
+ [  1 121   2]
+ [  3   1  92]]
+Acc - Train Samples: 0.9725158562367865
+
+------ Resample Jammed - 140.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[63  6  0]
+ [ 3  7  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.85
+
+140.0% :
+
+Confusion Matrix - Train Samples: 
+[[248   1   4]
+ [  0 136   0]
+ [  3   0  93]]
+Acc - Train Samples: 0.9835051546391752
+
+------ Resample Jammed - 160.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[61  8  0]
+ [ 3  7  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.83
+
+160.0% :
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  2 146   0]
+ [  4   1  91]]
+Acc - Train Samples: 0.9778672032193159
+
+------ Resample Jammed - 180.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[62  7  0]
+ [ 2  8  0]
+ [ 5  1 15]]
+Acc - Test Samples: 0.85
+
+180.0% :
+
+Confusion Matrix - Train Samples: 
+[[248   1   4]
+ [  2 158   0]
+ [  5   0  91]]
+Acc - Train Samples: 0.9764243614931237
+
+------ Resample Jammed - 200.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[62  7  0]
+ [ 2  8  0]
+ [ 6  0 15]]
+Acc - Test Samples: 0.85
+
+200.0% :
+
+Confusion Matrix - Train Samples: 
+[[248   1   4]
+ [  2 171   0]
+ [  3   0  93]]
+Acc - Train Samples: 0.9808429118773946
+
+########## Random Seed 18 ############
+
+
+-------- Original dataset: -----------
+
+Confusion Matrix - Test Samples: 
+[[67  2  0]
+ [11  2  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.85
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  3  45   0]
+ [  2   0  97]]
+Acc - Train Samples: 0.9775
+
+------ Resample Jammed - 20.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[64  4  1]
+ [10  3  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.83
+
+20.0% :
+
+Confusion Matrix - Train Samples: 
+[[250   0   3]
+ [  5  55   0]
+ [  7   0  92]]
+Acc - Train Samples: 0.9635922330097088
+
+------ Resample Jammed - 40.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[65  4  0]
+ [ 6  7  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.88
+
+40.0% :
+
+Confusion Matrix - Train Samples: 
+[[250   0   3]
+ [  4  68   0]
+ [  4   0  95]]
+Acc - Train Samples: 0.9740566037735849
+
+------ Resample Jammed - 60.00000000000001% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[65  3  1]
+ [ 5  8  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.89
+
+60.00000000000001% :
+
+Confusion Matrix - Train Samples: 
+[[248   0   5]
+ [  5  79   0]
+ [  5   0  94]]
+Acc - Train Samples: 0.9655963302752294
+
+------ Resample Jammed - 80.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[66  3  0]
+ [ 0 13  0]
+ [ 3  0 15]]
+Acc - Test Samples: 0.94
+
+80.0% :
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  5  91   0]
+ [  6   1  92]]
+Acc - Train Samples: 0.9642857142857143
+
+------ Resample Jammed - 100.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[64  4  1]
+ [ 3 10  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.9
+
+100.0% :
+
+Confusion Matrix - Train Samples: 
+[[249   0   4]
+ [  6 103   0]
+ [  4   1  94]]
+Acc - Train Samples: 0.9674620390455532
+
+------ Resample Jammed - 120.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[61  8  0]
+ [ 3 10  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.87
+
+120.0% :
+
+Confusion Matrix - Train Samples: 
+[[248   0   5]
+ [  3 118   0]
+ [  3   0  96]]
+Acc - Train Samples: 0.9767441860465116
+
+------ Resample Jammed - 140.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[55 12  2]
+ [ 1 12  0]
+ [ 2  1 15]]
+Acc - Test Samples: 0.82
+
+140.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   1   5]
+ [  2 131   0]
+ [  2   0  97]]
+Acc - Train Samples: 0.979381443298969
+
+------ Resample Jammed - 160.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[62  7  0]
+ [ 1 12  0]
+ [ 2  0 16]]
+Acc - Test Samples: 0.9
+
+160.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   2   4]
+ [  3 142   0]
+ [  5   1  93]]
+Acc - Train Samples: 0.9698189134808853
+
+------ Resample Jammed - 180.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[60  9  0]
+ [ 0 13  0]
+ [ 1  1 16]]
+Acc - Test Samples: 0.89
+
+180.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   1   5]
+ [  1 156   0]
+ [  5   0  94]]
+Acc - Train Samples: 0.9764243614931237
+
+------ Resample Jammed - 200.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[57 12  0]
+ [ 1 12  0]
+ [ 2  1 15]]
+Acc - Test Samples: 0.84
+
+200.0% :
+
+Confusion Matrix - Train Samples: 
+[[247   2   4]
+ [  1 169   0]
+ [  5   0  94]]
+Acc - Train Samples: 0.9770114942528736-------- Original dataset: -----------
+
+Confusion Matrix - Test Samples: 
+[[57  5  2]
+ [11  1  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.77
+
+Confusion Matrix - Train Samples: 
+[[255   0   3]
+ [  5  43   0]
+ [  4   0  90]]
+Acc - Train Samples: 0.97
+
+------ Resample Jammed - 20.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[55  6  3]
+ [ 9  3  1]
+ [ 3  1 19]]
+Acc - Test Samples: 0.77
+
+20.0% :
+
+Confusion Matrix - Train Samples: 
+[[256   0   2]
+ [  4  56   0]
+ [  5   0  89]]
+Acc - Train Samples: 0.9733009708737864
+
+------ Resample Jammed - 40.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[57  5  2]
+ [ 4  8  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.84
+
+40.0% :
+
+Confusion Matrix - Train Samples: 
+[[256   0   2]
+ [  6  66   0]
+ [  2   0  92]]
+Acc - Train Samples: 0.9764150943396226
+
+------ Resample Jammed - 60.00000000000001% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[55  7  2]
+ [ 7  5  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.79
+
+60.00000000000001% :
+
+Confusion Matrix - Train Samples: 
+[[255   0   3]
+ [  3  81   0]
+ [  5   0  89]]
+Acc - Train Samples: 0.9747706422018348
+
+------ Resample Jammed - 80.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[56  6  2]
+ [ 7  5  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.8
+
+80.0% :
+
+Confusion Matrix - Train Samples: 
+[[257   0   1]
+ [  2  93   1]
+ [  4   0  90]]
+Acc - Train Samples: 0.9821428571428571
+
+------ Resample Jammed - 100.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[53  8  3]
+ [ 7  6  0]
+ [ 3  1 19]]
+Acc - Test Samples: 0.78
+
+100.0% :
+
+Confusion Matrix - Train Samples: 
+[[255   2   1]
+ [  1 108   0]
+ [  4   0  90]]
+Acc - Train Samples: 0.982646420824295
+
+------ Resample Jammed - 120.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[54  8  2]
+ [ 4  8  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.81
+
+120.0% :
+
+Confusion Matrix - Train Samples: 
+[[255   0   3]
+ [  0 119   2]
+ [  3   0  91]]
+Acc - Train Samples: 0.9830866807610994
+
+------ Resample Jammed - 140.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[49 12  3]
+ [ 2 11  0]
+ [ 3  1 19]]
+Acc - Test Samples: 0.79
+
+140.0% :
+
+Confusion Matrix - Train Samples: 
+[[254   2   2]
+ [  0 133   0]
+ [  5   0  89]]
+Acc - Train Samples: 0.9814432989690721
+
+------ Resample Jammed - 160.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[54  7  3]
+ [ 3  9  1]
+ [ 4  0 19]]
+Acc - Test Samples: 0.82
+
+160.0% :
+
+Confusion Matrix - Train Samples: 
+[[254   2   2]
+ [  0 145   0]
+ [  5   0  89]]
+Acc - Train Samples: 0.9818913480885312
+
+------ Resample Jammed - 180.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[51 11  2]
+ [ 2 11  0]
+ [ 3  1 19]]
+Acc - Test Samples: 0.81
+
+180.0% :
+
+Confusion Matrix - Train Samples: 
+[[254   1   3]
+ [  0 157   0]
+ [  4   0  90]]
+Acc - Train Samples: 0.9842829076620825
+
+------ Resample Jammed - 200.0% ---------- 
+
+Confusion Matrix - Test Samples: 
+[[53  8  3]
+ [ 2 11  0]
+ [ 4  0 19]]
+Acc - Test Samples: 0.83
+
+200.0% :
+
+Confusion Matrix - Train Samples: 
+[[254   2   2]
+ [  0 170   0]
+ [  4   0  90]]
+Acc - Train Samples: 0.9846743295019157
