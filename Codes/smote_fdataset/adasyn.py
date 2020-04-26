@@ -80,7 +80,7 @@ for percent in percent_jam_list:
 np.savetxt(''.join([folder_save,'y_test.csv']),y_test,delimiter=',')
 np.savetxt(''.join([folder_save,'X_test.csv']),X_test,delimiter=',')
 
-#######################################
+#########################################
 
 X_train_all, X_test_all, y_train_all, y_test_all = load_dataframe_allcompenents('dataset/',1556)
 
